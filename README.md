@@ -1,5 +1,9 @@
 # Pylocker
-This software generates an encrypted locker which is protected by a password. This uses [`pycryptodome`](https://pypi.org/project/pycryptodome/) library.
+This software generates an encrypted locker which is protected by a password. This uses [`pycryptodome`](https://pypi.org/project/pycryptodome/) library.<br><br>
+Updates:<br>
+* Added gzip for better memory and storage management.
+* Added password mask
+
 <br><br>
 To install pycryptodome:<br>
 ```

@@ -1,8 +1,9 @@
 try:
     from Crypto.Hash import SHAKE256
     from Crypto.Cipher import Salsa20
+    from stdiomask import getpass
 except ModuleNotFoundError:               #If no module
-    print(r"""ERROR: pycryptodome isn't installed in your computer.
+    print(r"""ERROR: requirements aren't installed in your computer.
     
 To install pycryptodome:
 1. open cmd
@@ -14,12 +15,13 @@ import os
 import subprocess as s
 import py_compile as pc
 
-print('''Pylocker for Microsoft(R) Windows™ (Python™ 3.9)
+print(r'''Pylocker for Microsoft(R) Windows™ (Python™ 3.9)
 (c)Aniket Maity
 All Rights Reserved
 
 UPDATES:
 - added gzip for better memory and storage management.
+- added password mask
 
 Welcome To Pylocker, a software made to keeps your files safe, protected by a password.
 
@@ -47,9 +49,9 @@ lockername=' '+lockername
 yn='n'
 while yn not in ['y','Y']:
     while True:
-        password=input("Enter your Password:\t")
+        password=getpass("Enter your Password:\t")
         print()
-        retype=input("Retype your Password again:\t")
+        retype=getpass("Retype your Password again:\t")
         print()
         if retype!=password:
             print("ERROR:Passwords do not match\n")
@@ -82,6 +84,7 @@ pylocker="{}\\\\{}.pylocker".format(dirc,lockername)
 code='''try:
     from Crypto.Hash import SHAKE256
     from Crypto.Cipher import Salsa20
+    from stdiomask import getpass
 except ModuleNotFoundError:               #If module not found
     print("ERROR: pycryptodome isn't installed in your computer.\\n\\n")
     print("To install pycryptodome in your computer:")
@@ -112,7 +115,7 @@ def pswdauth(a):
 filedict={0}
 
 while True:
-    key=input("Enter Password:\\t")
+    key=getpass("Enter Password:\\t")
     shake=SHAKE256.new()
     shake.update(key.encode())
     key=shake.read(32)
@@ -193,6 +196,7 @@ filedict.update({{cipher1.nonce+cipher1.encrypt(b'placeholder'):cipher2.nonce+ci
 pycode="""try:
     from Crypto.Hash import SHAKE256
     from Crypto.Cipher import Salsa20
+    from stdiomask import getpass
 except ModuleNotFoundError:               #If module not found
     print("ERROR: pycryptodome isn't installed in your computer.\\\\n\\\\n")
     print("To install pycryptodome in your computer:")
@@ -223,7 +227,7 @@ def pswdauth(a):
 filedict={{0}}         #change for generator
 
 while True:
-    key=input("Enter Password:\\\\t")
+    key=getpass("Enter Password:\\\\t")
     shake=SHAKE256.new()
     shake.update(key.encode())
     key=shake.read(32)
